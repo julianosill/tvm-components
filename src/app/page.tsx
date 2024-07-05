@@ -1,113 +1,313 @@
-import Image from "next/image";
+'use client'
+
+import { ChevronRight, Plus, Volume1, Volume2 } from 'lucide-react'
+
+import { Avatar } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Radio } from '@/components/ui/radio-group'
+import { Select } from '@/components/ui/select'
+import { Slider } from '@/components/ui/slider'
+import { Switch } from '@/components/ui/switch'
+import { Tag } from '@/components/ui/tag'
+import { ThemeToggle } from '@/components/ui/theme-toggle'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="container space-y-12 py-6">
+      <section className="flex items-center justify-end gap-2">
+        Tema:
+        <ThemeToggle />
+      </section>
+
+      <section className="space-y-8">
+        <h2 className="text-2xl font-semibold">Form</h2>
+        <div className="grid grid-cols-[8rem_1fr] gap-y-6">
+          <span className="self-center">Text Input</span>
+          <div className="space-y-1">
+            <Label htmlFor="input">Label</Label>
+            <div className="flex gap-2">
+              <Input id="input" placeholder="Placeholder here" />
+              <Button className="shadow-none">Button</Button>
+            </div>
+          </div>
+
+          <span className="self-center">Select</span>
+          <Select.Root>
+            <Select.Trigger>
+              <Select.Value placeholder="Choose an option" />
+            </Select.Trigger>
+            <Select.Content>
+              <Select.Group>
+                <Select.Label>Group title</Select.Label>
+                <Select.Item value="opt-1">First option</Select.Item>
+                <Select.Item value="opt-2">Second option</Select.Item>
+                <Select.Item value="opt-3">Third option</Select.Item>
+                <Select.Item value="opt-4">Fourth option</Select.Item>
+                <Select.Item value="opt-5">Fifth option</Select.Item>
+                <Select.Item value="opt-6">Sixth option</Select.Item>
+              </Select.Group>
+              <Select.Group>
+                <Select.Label>Group title</Select.Label>
+                <Select.Item value="opt-7">First option</Select.Item>
+                <Select.Item value="opt-8">Second option</Select.Item>
+                <Select.Item value="opt-9">Third option</Select.Item>
+                <Select.Item value="opt-10">Fourth option</Select.Item>
+                <Select.Item value="opt-11">Fifth option</Select.Item>
+                <Select.Item value="opt-12">Sixth option</Select.Item>
+              </Select.Group>
+            </Select.Content>
+          </Select.Root>
+
+          <span className="self-center">Radio Group</span>
+          <Radio.Group defaultValue="radio-one" className="flex gap-4">
+            <Radio.Wrapper>
+              <Radio.Item value="radio-one" id="radio-one" />
+              <Radio.Label htmlFor="radio-one">One</Radio.Label>
+            </Radio.Wrapper>
+            <Radio.Wrapper>
+              <Radio.Item value="radio-two" id="radio-two" />
+              <Radio.Label htmlFor="radio-two">Two</Radio.Label>
+            </Radio.Wrapper>
+            <Radio.Wrapper>
+              <Radio.Item value="radio-disabled" id="radio-disabled" disabled />
+              <Radio.Label htmlFor="radio-disabled">Disabled</Radio.Label>
+            </Radio.Wrapper>
+          </Radio.Group>
+
+          <span className="self-center">Checkbox</span>
+          <div className="flex gap-8">
+            <Checkbox.Root>
+              <Checkbox.Mark id="checkbox-unchecked" />
+              <Checkbox.Label htmlFor="checkbox-unchecked">
+                Unchecked
+              </Checkbox.Label>
+            </Checkbox.Root>
+            <Checkbox.Root>
+              <Checkbox.Mark id="checkbox-checked" defaultChecked />
+              <Checkbox.Label htmlFor="checkbox-checked">
+                Checked
+              </Checkbox.Label>
+            </Checkbox.Root>
+            <Checkbox.Root>
+              <Checkbox.Mark id="disabled" disabled />
+              <Checkbox.Label htmlFor="disabled">Disabled</Checkbox.Label>
+            </Checkbox.Root>
+          </div>
+
+          <span className="self-center">Switch</span>
+          <div className="flex gap-8">
+            <Switch.Root>
+              <Switch.Toogle id="switch" />
+              <Switch.Label htmlFor="switch">Unchecked</Switch.Label>
+            </Switch.Root>
+            <Switch.Root>
+              <Switch.Toogle id="switch-checked" defaultChecked />
+              <Switch.Label htmlFor="switch-checked">Checked</Switch.Label>
+            </Switch.Root>
+            <Switch.Root>
+              <Switch.Toogle id="switch-disabled" disabled />
+              <Switch.Label htmlFor="switch-disabled">
+                Switch disabled
+              </Switch.Label>
+            </Switch.Root>
+          </div>
+
+          <span className="self-center">Slider</span>
+          <div className="flex gap-12">
+            <Slider.Wrapper>
+              <Volume1 className="text-foreground/90" />
+              <Slider.Selector defaultValue={[35]} max={100} step={1} />
+              <Volume2 className="text-foreground/90" />
+            </Slider.Wrapper>
+            <Slider.Selector defaultValue={[75]} max={100} step={1} disabled />
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section className="space-y-8">
+        <h2 className="text-2xl font-semibold">Buttons</h2>
+        <div className="grid grid-cols-[5rem_1fr] gap-y-4">
+          <span className="self-center">Small</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <Button variant="primary" size="sm">
+              <Plus className="size-3.5" />
+              Primary
+              <ChevronRight className="size-3.5" />
+            </Button>
+            <Button variant="secondary" size="sm">
+              <Plus className="size-3.5" />
+              Secondary
+              <ChevronRight className="size-3.5" />
+            </Button>
+            <Button variant="outline" size="sm">
+              <Plus className="size-3.5" />
+              Outline
+              <ChevronRight className="size-3.5" />
+            </Button>
+            <Button variant="muted" size="sm">
+              <Plus className="size-3.5" />
+              Muted
+              <ChevronRight className="size-3.5" />
+            </Button>
+            <Button variant="ghost" size="sm">
+              <Plus className="size-3.5" />
+              Ghost
+              <ChevronRight className="size-3.5" />
+            </Button>
+            <Button variant="destructive" size="sm">
+              <Plus className="size-3.5" />
+              Destructive
+              <ChevronRight className="size-3.5" />
+            </Button>
+          </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          <span className="self-center">Default</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <Button variant="primary">
+              <Plus className="size-4" />
+              Primary
+              <ChevronRight className="size-4" />
+            </Button>
+            <Button variant="secondary">
+              <Plus className="size-4" />
+              Secondary
+              <ChevronRight className="size-4" />
+            </Button>
+            <Button variant="outline">
+              <Plus className="size-4" />
+              Outline
+              <ChevronRight className="size-3.5" />
+            </Button>
+            <Button variant="muted">
+              <Plus className="size-4" />
+              Muted
+              <ChevronRight className="size-4" />
+            </Button>
+            <Button variant="ghost">
+              <Plus className="size-4" />
+              Ghost
+              <ChevronRight className="size-4" />
+            </Button>
+            <Button variant="destructive">
+              <Plus className="size-4" />
+              Destructive
+              <ChevronRight className="size-4" />
+            </Button>
+          </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <span className="self-center">Large</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <Button variant="primary" size="lg">
+              <Plus className="size-5" />
+              Primary
+              <ChevronRight className="size-5" />
+            </Button>
+            <Button variant="secondary" size="lg">
+              <Plus className="size-5" />
+              Secondary
+              <ChevronRight className="size-5" />
+            </Button>
+            <Button variant="outline" size="lg">
+              <Plus className="size-5" />
+              Outline
+              <ChevronRight className="size-5" />
+            </Button>
+            <Button variant="muted" size="lg">
+              <Plus className="size-5" />
+              Muted
+              <ChevronRight className="size-5" />
+            </Button>
+            <Button variant="ghost" size="lg">
+              <Plus className="size-5" />
+              Ghost
+              <ChevronRight className="size-5" />
+            </Button>
+            <Button variant="destructive" size="lg">
+              <Plus className="size-5" />
+              Destructive
+              <ChevronRight className="size-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      <section className="space-y-8">
+        <h2 className="text-2xl font-semibold">Tags</h2>
+        <div className="grid grid-cols-[5rem_1fr] gap-y-4">
+          <span className="self-center">Small</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <Tag variant="primary" size="sm">
+              Primary
+            </Tag>
+            <Tag variant="secondary" size="sm">
+              Secondary
+            </Tag>
+            <Tag variant="tertiary" size="sm">
+              Tertiary
+            </Tag>
+            <Tag variant="quaternary" size="sm">
+              Quaternary
+            </Tag>
+          </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          <span className="self-center">Default</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <Tag variant="primary">Primary</Tag>
+            <Tag variant="secondary">Secondary</Tag>
+            <Tag variant="tertiary">Tertiary</Tag>
+            <Tag variant="quaternary">Quaternary</Tag>
+          </div>
+
+          <span className="self-center">Large</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <Tag variant="primary" size="lg">
+              Primary
+            </Tag>
+            <Tag variant="secondary" size="lg">
+              Secondary
+            </Tag>
+            <Tag variant="tertiary" size="lg">
+              Tertiary
+            </Tag>
+            <Tag variant="quaternary" size="lg">
+              Quaternary
+            </Tag>
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-8">
+        <h2 className="text-2xl font-semibold">Profile</h2>
+        <div className="grid grid-cols-[5rem_1fr] gap-y-4">
+          <span className="self-center">Avatar</span>
+          <div className="flex flex-wrap items-center gap-6">
+            <div className="text-center">
+              <Avatar.Root isMaster className="size-16">
+                <Avatar.Image src="https://github.com/julianosill.png" />
+                <Avatar.Fallback>JU</Avatar.Fallback>
+              </Avatar.Root>
+              <span className="text-sm">Master</span>
+            </div>
+            <div className="text-center">
+              <Avatar.Root className="size-16">
+                <Avatar.Image src="https://github.com/julianosill.png" />
+                <Avatar.Fallback>JU</Avatar.Fallback>
+              </Avatar.Root>
+              <span className="text-sm">Player</span>
+            </div>
+            <div className="text-center">
+              <Avatar.Root className="size-16">
+                <Avatar.Image src="null" />
+                <Avatar.Fallback className="text-2xl">JU</Avatar.Fallback>
+              </Avatar.Root>
+              <span className="text-sm">Fallback</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-  );
+  )
 }
