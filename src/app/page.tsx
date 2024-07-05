@@ -78,7 +78,7 @@ export default function Home() {
           </Radio.Group>
 
           <span className="self-center">Checkbox</span>
-          <div className="flex gap-8">
+          <div className="flex flex-wrap gap-x-8 gap-y-4">
             <Checkbox.Root>
               <Checkbox.Mark id="checkbox-unchecked" />
               <Checkbox.Label htmlFor="checkbox-unchecked">
@@ -98,7 +98,7 @@ export default function Home() {
           </div>
 
           <span className="self-center">Switch</span>
-          <div className="flex gap-8">
+          <div className="flex flex-wrap gap-x-8 gap-y-4">
             <Switch.Root>
               <Switch.Toogle id="switch" />
               <Switch.Label htmlFor="switch">Unchecked</Switch.Label>
@@ -116,7 +116,7 @@ export default function Home() {
           </div>
 
           <span className="self-center">Slider</span>
-          <div className="flex gap-12">
+          <div className="flex gap-8">
             <Slider.Wrapper>
               <Volume1 className="text-foreground/90" />
               <Slider.Selector defaultValue={[35]} max={100} step={1} />
