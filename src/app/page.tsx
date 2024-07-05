@@ -4,6 +4,7 @@ import { ChevronRight, Plus, Volume1, Volume2 } from 'lucide-react'
 
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -305,6 +306,40 @@ export default function Home() {
               </Avatar.Root>
               <span className="text-sm">Fallback</span>
             </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-semibold">Cards</h2>
+        <div className="grid grid-cols-[7rem_1fr] gap-y-4">
+          <span className="self-center">Bio</span>
+          <Card.Wrapper variant="outline">
+            <p className="text-sm text-foreground/60">
+              Culpa eu quis do commodo adipisicing est ipsum Lorem sint est elit
+              nisi aliqua nisi. Cupidatat minim labore nostrud nostrud
+              reprehenderit laboris magna reprehenderit reprehenderit ipsum.
+              Nostrud amet mollit cupidatat labore officia nisi ex consequat
+              proident Lorem magna in enim sunt. Dolore exercitation consectetur
+              nostrud id id incididunt amet ut occaecat. Nisi minim velit anim
+              deserunt adipisicing ipsum est. Aliquip exercitation fugiat culpa
+              nostrud incididunt reprehenderit sit elit excepteur ea mollit
+              aliquip. Voluptate est ullamco ut nisi ullamco duis labore irure
+              ea sit eiusmod officia aliquip. Occaecat in minim id eiusmod velit
+              sint consectetur laboris deserunt ex. Sint et id qui occaecat
+              fugiat cillum aliquip enim non. Ea mollit sunt sint officia
+              laboris sit duis fugiat aute dolore ut sunt ipsum. Dolore magna
+              consequat occaecat adipisicing duis ullamco.
+            </p>
+          </Card.Wrapper>
+          <span className="self-center">Status card</span>
+          <div className="flex items-center justify-center rounded-2xl bg-foreground/10 p-8">
+            <Card.Wrapper className="flex max-w-md flex-col items-center gap-2 px-8 text-center">
+              <Card.Title>Card title</Card.Title>
+              <p>
+                Aliquip exercitation fugiat culpa nostrud incididunt
+                reprehenderit
+              </p>
+              <Button className="mt-2">Button</Button>
+            </Card.Wrapper>
           </div>
         </div>
       </section>
