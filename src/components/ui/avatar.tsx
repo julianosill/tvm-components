@@ -25,16 +25,19 @@ const AvatarRoot = React.forwardRef<
     {...props}
   >
     {isMaster && (
-      <MasterIcon className="absolute bottom-0 size-5 fill-secondary brightness-150" />
+      <MasterIcon className='absolute bottom-0 size-5 fill-secondary brightness-150' />
     )}
     {children}
   </AvatarPrimitive.Root>
 ))
 AvatarRoot.displayName = AvatarPrimitive.Root.displayName
 
+interface AvatarImageProps
+  extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> {}
+
 const AvatarImage = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
+  AvatarImageProps
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Image
     ref={ref}
@@ -44,9 +47,12 @@ const AvatarImage = React.forwardRef<
 ))
 AvatarImage.displayName = AvatarPrimitive.Image.displayName
 
+interface AvatarFallbackProps
+  extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback> {}
+
 const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Fallback>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
+  AvatarFallbackProps
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Fallback
     ref={ref}

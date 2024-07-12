@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary:
+        default:
           'bg-primary text-primary-foreground hover:bg-primary/80 shadow-md',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md',
@@ -29,7 +29,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'primary',
+      variant: 'default',
       size: 'default',
     },
   },

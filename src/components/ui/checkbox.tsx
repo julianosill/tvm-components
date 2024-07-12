@@ -7,21 +7,25 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
-const CheckboxRoot = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<'div'>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex items-center gap-2', className)}
-    {...props}
-  />
-))
+interface CheckboxRootProps extends React.ComponentPropsWithoutRef<'div'> {}
+
+const CheckboxRoot = React.forwardRef<HTMLDivElement, CheckboxRootProps>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('flex items-center gap-2', className)}
+      {...props}
+    />
+  ),
+)
 CheckboxRoot.displayName = 'CheckboxRoot'
+
+interface CheckboxMarkProps
+  extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {}
 
 const CheckboxMark = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
+  CheckboxMarkProps
 >(({ className, ...props }, ref) => (
   <CheckboxPrimitive.Root
     ref={ref}
@@ -34,15 +38,21 @@ const CheckboxMark = React.forwardRef<
     <CheckboxPrimitive.Indicator
       className={cn('flex items-center justify-center text-current')}
     >
-      <Check className="size-4" strokeWidth={3} />
+      <Check
+        className='size-4'
+        strokeWidth={3}
+      />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ))
 CheckboxMark.displayName = CheckboxPrimitive.Root.displayName
 
+interface CheckboxLabelProps
+  extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> {}
+
 const CheckboxLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+  CheckboxLabelProps
 >(({ className, ...props }, ref) => (
   <LabelPrimitive.Root
     ref={ref}

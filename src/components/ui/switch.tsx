@@ -6,21 +6,25 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
-const SwitchRoot = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<'div'>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('flex items-center gap-2', className)}
-    {...props}
-  />
-))
+interface SwitchRootProps extends React.ComponentPropsWithoutRef<'div'> {}
+
+const SwitchRoot = React.forwardRef<HTMLDivElement, SwitchRootProps>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('flex items-center gap-2', className)}
+      {...props}
+    />
+  ),
+)
 SwitchRoot.displayName = 'SwitchRoot'
+
+interface SwitchToggleProps
+  extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {}
 
 const SwitchToggle = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
-  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
+  SwitchToggleProps
 >(({ className, ...props }, ref) => (
   <SwitchPrimitives.Root
     className={cn(
@@ -39,9 +43,12 @@ const SwitchToggle = React.forwardRef<
 ))
 SwitchToggle.displayName = SwitchPrimitives.Root.displayName
 
+interface SwitchLabelProps
+  extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> {}
+
 const SwitchLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+  SwitchLabelProps
 >(({ className, ...props }, ref) => (
   <LabelPrimitive.Root
     ref={ref}

@@ -1,14 +1,9 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { Raleway } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 
-const raleway = Raleway({
-  subsets: ['latin'],
-  variable: '--font-raleway',
-  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
-})
+import { raleway } from '@/lib/fonts'
 
 export const metadata: Metadata = {
   title: 'TVM Components',
@@ -20,9 +15,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={raleway.variable} suppressHydrationWarning>
-      <body className="antialiased">
-        <ThemeProvider attribute="class" disableTransitionOnChange>
+    <html
+      lang='pt-BR'
+      suppressHydrationWarning
+      className={`${raleway.variable} antialiased`}
+    >
+      <body>
+        <ThemeProvider
+          attribute='class'
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>

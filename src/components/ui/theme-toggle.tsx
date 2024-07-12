@@ -14,23 +14,27 @@ export function ThemeToggle() {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Button variant="outline" size="icon" className="size-8">
-          <Sun className="size-4 dark:scale-0 dark:opacity-0" />
-          <Moon className="absolute size-4 scale-0 opacity-0 dark:scale-100 dark:opacity-100" />
-          <span className="sr-only">Alterar tema</span>
+        <Button
+          variant='outline'
+          size='icon'
+          className='size-8'
+        >
+          <Sun className='size-4 dark:scale-0 dark:opacity-0' />
+          <Moon className='absolute size-4 scale-0 opacity-0 dark:scale-100 dark:opacity-100' />
+          <span className='sr-only'>Alterar tema</span>
         </Button>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content align="end">
+      <DropdownMenu.Content align='end'>
         <DropdownMenu.Item onClick={() => setTheme('light')}>
-          <Sun className="size-3" />
+          <Sun className='size-3' />
           Claro
         </DropdownMenu.Item>
         <DropdownMenu.Item onClick={() => setTheme('dark')}>
-          <Moon className="size-3" />
+          <Moon className='size-3' />
           Escuro
         </DropdownMenu.Item>
         <DropdownMenu.Item onClick={() => setTheme('system')}>
-          <Monitor className="size-3" />
+          <Monitor className='size-3' />
           Sistema
         </DropdownMenu.Item>
       </DropdownMenu.Content>

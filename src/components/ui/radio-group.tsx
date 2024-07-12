@@ -7,9 +7,11 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
+interface RadioGroupProps
+  extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> {}
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
+  RadioGroupProps
 >(({ className, ...props }, ref) => {
   return (
     <RadioGroupPrimitive.Root
@@ -21,9 +23,11 @@ const RadioGroup = React.forwardRef<
 })
 RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
 
+interface RadioGroupWrapperProps
+  extends React.ComponentPropsWithoutRef<'div'> {}
 const RadioGroupWrapper = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<'div'>
+  RadioGroupWrapperProps
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
@@ -33,9 +37,11 @@ const RadioGroupWrapper = React.forwardRef<
 ))
 RadioGroupWrapper.displayName = 'RadioGroupWrapper'
 
+interface RadioGroupItemProps
+  extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {}
 const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
+  RadioGroupItemProps
 >(({ className, ...props }, ref) => {
   return (
     <RadioGroupPrimitive.Item
@@ -46,17 +52,19 @@ const RadioGroupItem = React.forwardRef<
       )}
       {...props}
     >
-      <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-        <Circle className="size-2.5 fill-current text-current" />
+      <RadioGroupPrimitive.Indicator className='flex items-center justify-center'>
+        <Circle className='size-2.5 fill-current text-current' />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
   )
 })
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
 
+interface RadioGroupLabelProps
+  extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> {}
 const RadioGroupLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
+  RadioGroupLabelProps
 >(({ className, ...props }, ref) => (
   <LabelPrimitive.Root
     ref={ref}
