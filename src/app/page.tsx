@@ -1,6 +1,7 @@
 'use client'
 
-import { ChevronRight, Plus, Volume1, Volume2 } from 'lucide-react'
+import { SignOutButton } from '@clerk/nextjs'
+import { ArrowLeft, ChevronRight, Plus, Volume1, Volume2 } from 'lucide-react'
 
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -18,10 +19,18 @@ import { ThemeToggle } from '@/components/ui/theme-toggle'
 export default function Home() {
   return (
     <main className='container space-y-12 py-6'>
-      <section className='flex items-center justify-end gap-2'>
-        Tema:
-        <ThemeToggle />
-      </section>
+      <header className='flex items-center justify-between gap-4'>
+        <SignOutButton>
+          <Button>
+            <ArrowLeft className='size-4' />
+            Sign out
+          </Button>
+        </SignOutButton>
+        <div className='flex items-center gap-2'>
+          Theme:
+          <ThemeToggle />
+        </div>
+      </header>
 
       <section className='space-y-8'>
         <h2 className='text-2xl font-semibold'>Form</h2>

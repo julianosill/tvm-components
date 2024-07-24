@@ -1,9 +1,10 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { ThemeProvider } from 'next-themes'
 
 import { raleway } from '@/lib/fonts'
+
+import { Providers } from './providers'
 
 export const metadata: Metadata = {
   title: 'TVM Components',
@@ -21,12 +22,7 @@ export default function RootLayout({
       className={`${raleway.variable} antialiased`}
     >
       <body>
-        <ThemeProvider
-          attribute='class'
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
