@@ -22,30 +22,65 @@ const config = {
         sans: 'var(--font-raleway)',
       },
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        border: 'hsl(var(--border))',
-        ring: 'hsl(var(--ring))',
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+        background: {
+          DEFAULT: 'hsl(var(--background))',
+          soft: 'hsl(var(--background-soft))',
+          disabled: 'hsl(var(--background-disabled))',
+          hard: 'hsl(var(--background-hard))',
+        },
+        foreground: {
+          DEFAULT: 'hsl(var(--foreground))',
+          support: 'hsl(var(--foreground-support))',
+          soft: 'hsl(var(--foreground-soft))',
+          hard: 'hsl(var(--foreground-hard))',
         },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
+          soft: 'hsl(var(--primary-soft))',
+          hard: 'hsl(var(--primary-hard))',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
+          soft: 'hsl(var(--secondary-soft))',
+          hard: 'hsl(var(--secondary-hard))',
           foreground: 'hsl(var(--secondary-foreground))',
         },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+        player: {
+          DEFAULT: 'hsl(var(--player))',
+          soft: 'hsl(var(--player-soft))',
+          hard: 'hsl(var(--player-hard))',
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+        master: {
+          DEFAULT: 'hsl(var(--master))',
+          soft: 'hsl(var(--master-soft))',
+          hard: 'hsl(var(--master-hard))',
         },
+        warning: {
+          DEFAULT: 'hsl(var(--warning))',
+          soft: 'hsl(var(--warning-soft))',
+          hard: 'hsl(var(--warning-hard))',
+        },
+        info: {
+          DEFAULT: 'hsl(var(--info))',
+          soft: 'hsl(var(--info-soft))',
+          hard: 'hsl(var(--info-hard))',
+        },
+        error: {
+          DEFAULT: 'hsl(var(--error))',
+          soft: 'hsl(var(--error-soft))',
+          hard: 'hsl(var(--error-hard))',
+        },
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          soft: 'hsl(var(--success-soft))',
+          hard: 'hsl(var(--success-hard))',
+        },
+        border: {
+          DEFAULT: 'hsl(var(--border))',
+          dark: 'hsl(var(--border-dark))',
+        },
+        ring: 'hsl(var(--ring))',
       },
       borderRadius: {
         lg: 'var(--radius)',

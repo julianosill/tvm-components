@@ -9,14 +9,14 @@ export default clerkMiddleware(
   (auth, request) => {
     if (!isPublicRoute(request)) {
       try {
-        // Retorna erro 404 se não possui permissão de acesso ou não estiver logado.
+        // Retorna erro 404 se não possuir permissão de acesso ou não estiver logado.
         auth().protect()
       } catch (error) {
         auth().redirectToSignIn()
       }
     }
   },
-  // Habilita logs nos terminal em ambiente de desenvolvimento.
+  // Habilita logs no terminal em ambiente de desenvolvimento.
   { debug: process.env.NODE_ENV === 'development' },
 )
 
